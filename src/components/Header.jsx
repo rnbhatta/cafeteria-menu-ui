@@ -1,6 +1,6 @@
 import { useCart } from '../context/CartContext'
 
-export default function Header({ onOpenQuery }) {
+export default function Header({ onOpenQuery, onOpenAgent }) {
   const { cartCount, openCart } = useCart()
 
   const today = new Date().toLocaleDateString('en-US', {
@@ -18,6 +18,10 @@ export default function Header({ onOpenQuery }) {
           </div>
         </div>
         <div style={styles.actions}>
+          <button style={styles.agentBtn} onClick={onOpenAgent}>
+            <span>🤖</span>
+            <span>AI Assistant</span>
+          </button>
           <button style={styles.queryBtn} onClick={onOpenQuery}>
             <span>🔎</span>
             <span>Query DB</span>
@@ -59,6 +63,19 @@ const styles = {
   title: { fontSize: 22, fontWeight: 700, letterSpacing: '-0.3px' },
   subtitle: { fontSize: 13, color: '#a0a0c0', marginTop: 2 },
   actions: { display: 'flex', alignItems: 'center', gap: 10 },
+  agentBtn: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 8,
+    background: 'rgba(233,69,96,0.85)',
+    color: '#fff',
+    border: '1.5px solid rgba(255,255,255,0.2)',
+    borderRadius: 10,
+    padding: '10px 18px',
+    fontSize: 15,
+    fontWeight: 600,
+    cursor: 'pointer',
+  },
   queryBtn: {
     display: 'flex',
     alignItems: 'center',

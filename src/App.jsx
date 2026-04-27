@@ -8,15 +8,17 @@ import Cart from './components/Cart'
 import Checkout from './components/Checkout'
 import SearchBar from './components/SearchBar'
 import QueryInterface from './components/QueryInterface'
+import AgentChat from './components/AgentChat'
 
 export default function App() {
   const { cartOpen, checkoutOpen } = useCart()
   const { filtered, loading, error, activeCategory, setActiveCategory, search, setSearch, dietFilter, setDietFilter } = useMenuFilter()
   const [queryOpen, setQueryOpen] = useState(false)
+  const [agentOpen, setAgentOpen] = useState(false)
 
   return (
     <div>
-      <Header onOpenQuery={() => setQueryOpen(true)} />
+      <Header onOpenQuery={() => setQueryOpen(true)} onOpenAgent={() => setAgentOpen(true)} />
       <CategoryTabs active={activeCategory} onChange={setActiveCategory} />
 
       <main style={styles.main}>
@@ -64,6 +66,7 @@ export default function App() {
       {cartOpen && !checkoutOpen && <Cart />}
       {checkoutOpen && <Checkout />}
       {queryOpen && <QueryInterface onClose={() => setQueryOpen(false)} />}
+      {agentOpen && <AgentChat onClose={() => setAgentOpen(false)} />}
     </div>
   )
 }

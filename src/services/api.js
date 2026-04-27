@@ -26,3 +26,11 @@ export function placeOrder(orderData) {
 export function fetchOrders() {
   return request('/orders/')
 }
+
+export function agentChat(messages) {
+  return request('/agent/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages }),
+  })
+}
