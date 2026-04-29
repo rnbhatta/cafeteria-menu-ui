@@ -34,3 +34,15 @@ export function agentChat(messages) {
     body: JSON.stringify({ messages }),
   })
 }
+
+export function fetchAnalyticsOverview() {
+  return request('/analytics/overview')
+}
+
+export function fetchOrderAnalytics() {
+  return request('/analytics/orders')
+}
+
+export function fetchInferenceAnalytics() {
+  return request('/analytics/inference')
+}
