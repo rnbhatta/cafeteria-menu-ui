@@ -10,6 +10,7 @@ import SearchBar from './components/SearchBar'
 import QueryInterface from './components/QueryInterface'
 import AgentChat from './components/AgentChat'
 import Analytics from './components/Analytics'
+import SemanticSearch from './components/SemanticSearch'
 
 export default function App() {
   const { cartOpen, checkoutOpen } = useCart()
@@ -17,6 +18,7 @@ export default function App() {
   const [queryOpen, setQueryOpen]         = useState(false)
   const [agentOpen, setAgentOpen]         = useState(false)
   const [analyticsOpen, setAnalyticsOpen] = useState(false)
+  const [searchOpen, setSearchOpen]       = useState(false)
 
   return (
     <div>
@@ -24,6 +26,7 @@ export default function App() {
         onOpenQuery={() => setQueryOpen(true)}
         onOpenAgent={() => setAgentOpen(true)}
         onOpenAnalytics={() => setAnalyticsOpen(true)}
+        onOpenSearch={() => setSearchOpen(true)}
       />
       <CategoryTabs active={activeCategory} onChange={setActiveCategory} />
 
@@ -74,6 +77,7 @@ export default function App() {
       {queryOpen     && <QueryInterface onClose={() => setQueryOpen(false)} />}
       {agentOpen     && <AgentChat onClose={() => setAgentOpen(false)} />}
       {analyticsOpen && <Analytics onClose={() => setAnalyticsOpen(false)} />}
+      {searchOpen    && <SemanticSearch onClose={() => setSearchOpen(false)} />}
     </div>
   )
 }

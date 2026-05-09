@@ -1,6 +1,6 @@
 import { useCart } from '../context/CartContext'
 
-export default function Header({ onOpenQuery, onOpenAgent, onOpenAnalytics }) {
+export default function Header({ onOpenQuery, onOpenAgent, onOpenAnalytics, onOpenSearch }) {
   const { cartCount, openCart } = useCart()
 
   const today = new Date().toLocaleDateString('en-US', {
@@ -21,6 +21,10 @@ export default function Header({ onOpenQuery, onOpenAgent, onOpenAnalytics }) {
           <button style={styles.analyticsBtn} onClick={onOpenAnalytics}>
             <span>📊</span>
             <span>Analytics</span>
+          </button>
+          <button style={styles.searchBtn2} onClick={onOpenSearch}>
+            <span>🧠</span>
+            <span>Semantic Search</span>
           </button>
           <button style={styles.agentBtn} onClick={onOpenAgent}>
             <span>🤖</span>
@@ -85,6 +89,19 @@ const styles = {
     alignItems: 'center',
     gap: 8,
     background: 'rgba(233,69,96,0.85)',
+    color: '#fff',
+    border: '1.5px solid rgba(255,255,255,0.2)',
+    borderRadius: 10,
+    padding: '10px 18px',
+    fontSize: 15,
+    fontWeight: 600,
+    cursor: 'pointer',
+  },
+  searchBtn2: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 8,
+    background: 'rgba(101,78,163,0.85)',
     color: '#fff',
     border: '1.5px solid rgba(255,255,255,0.2)',
     borderRadius: 10,
