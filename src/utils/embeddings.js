@@ -40,6 +40,11 @@ export async function buildIndex(items, onProgress) {
   return vectors
 }
 
+export async function embedText(text) {
+  const pipe = await getPipeline()
+  return embed(pipe, text)
+}
+
 export async function semanticSearch(query, index, items, topK = 5) {
   const pipe = await getPipeline()
   const qVec = await embed(pipe, query)
